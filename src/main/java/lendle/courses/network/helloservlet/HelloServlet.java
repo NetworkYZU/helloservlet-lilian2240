@@ -17,19 +17,21 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author lendle
  */
-@WebServlet(name = "HelloServlet", urlPatterns = {"/"})
+@WebServlet(name = "HelloServlet", urlPatterns = {"/hello"}) // 路徑設定 /* 都有東西
 public class HelloServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html;charset=utf-8");
         try(PrintWriter out=resp.getWriter()){
+
             //輸出
-            // <html>
-            // <body>
-            //  <h1>Hello!</h1>
-            // </body>
-            // </html>
+            out.println("<html>");
+            out.println("<body>");
+            out.println(req.getRequestURI());
+            out.println("</body>");
+            out.println("</html>");
+
         }
     }
     
